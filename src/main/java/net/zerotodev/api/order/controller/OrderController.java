@@ -1,6 +1,6 @@
 package net.zerotodev.api.order.controller;
 
-import net.zerotodev.api.order.domain.Item;
+import net.zerotodev.api.order.domain.Order;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
@@ -9,23 +9,19 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class ItemController {
-    @GetMapping
-    public List<Item> findAll() {
+public class OrderController {
+    public List<Order> findAll() {
         return null;
     }
 
-    @GetMapping("/{id}")
-    public Optional<Item> findById(@PathVariable long id) {
+    public Optional<Order> findById(@PathVariable long id) {
         return Optional.empty();
     }
 
-    @PostMapping
-    public void save(Item order) {
+    public void save(Order order) {
 
     }
-    @PutMapping
-    public void update(Item order){
+    public void update(Order order){
 
     }
 

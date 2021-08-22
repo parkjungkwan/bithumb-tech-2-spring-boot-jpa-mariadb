@@ -15,4 +15,5 @@ public interface ItemService {
     boolean existsById(long id);
     long count();
     void deleteById(long id);
+    void deleteAll();
 }
