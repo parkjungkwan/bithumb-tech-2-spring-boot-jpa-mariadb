@@ -1,4 +1,4 @@
-package net.zerotodev.api.item;
+package net.zerotodev.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
