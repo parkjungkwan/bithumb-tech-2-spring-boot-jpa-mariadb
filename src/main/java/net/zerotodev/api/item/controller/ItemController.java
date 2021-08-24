@@ -18,7 +18,7 @@ import java.util.Optional;
 @Api
 @RequiredArgsConstructor
 @RestController
-@CrossOrigin(origins = "*", allowCredentials = "*")
+@CrossOrigin(origins = "*", allowCredentials = "false")
 @RequestMapping("/items")
 public class ItemController {
     private final ItemService itemService;
