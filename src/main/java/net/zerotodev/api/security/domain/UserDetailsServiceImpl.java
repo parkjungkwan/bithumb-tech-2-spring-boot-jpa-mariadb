@@ -1,9 +1,26 @@
 package net.zerotodev.api.security.domain;
 
+import lombok.RequiredArgsConstructor;
+import net.zerotodev.api.user.domain.User;
+import net.zerotodev.api.user.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
-public class UserDetailsServiceImpl {
-    public UserDetails loadUserByUsername(String username) {
-        return null;
+import javax.transaction.Transactional;
+import java.util.Optional;
+
+@Service
+@RequiredArgsConstructor
+public class UserDetailsServiceImpl implements UserDetailsService {
+
+    private final UserRepository userRepository;
+
+    @Transactional
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<User> user = Optional.ofNullable(userRepository.findByUsername(username))
+                .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username : "+ username));
+        return UserDetailsImpl.build(user.get());
     }
 }
