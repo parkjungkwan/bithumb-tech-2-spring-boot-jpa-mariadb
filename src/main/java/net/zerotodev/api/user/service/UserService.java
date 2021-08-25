@@ -1,6 +1,7 @@
 package net.zerotodev.api.user.service;
 
 import net.zerotodev.api.user.domain.User;
+import net.zerotodev.api.user.domain.UserDto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -14,4 +15,7 @@ public interface UserService {
     boolean existsById(long id);
     long count();
     void deleteById(long id);
+    String signup(User user);
+    UserDto signin(User user);
+
 }

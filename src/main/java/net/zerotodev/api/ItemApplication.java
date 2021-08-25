@@ -10,13 +10,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
-public class ItemApplication {
-	//@Autowired
-	//ItemService itemService;
+public class ItemApplication implements CommandLineRunner{
+	@Autowired
+	ItemService itemService;
 	public static void main(String[] args) {
 		SpringApplication.run(ItemApplication.class, args);
 	}
-/**
+
 	@Override
 	public void run(String... args) throws Exception {
 		// itemService.deleteAll();
@@ -27,5 +27,5 @@ public class ItemApplication {
 			System.out.println(i.toString());
 		}
 
-	}*/
+	}
 }
