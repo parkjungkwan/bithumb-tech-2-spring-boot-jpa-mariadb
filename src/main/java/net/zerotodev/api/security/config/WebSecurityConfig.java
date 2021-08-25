@@ -16,6 +16,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @RequiredArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final SecurityProvider provider;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     @Bean
     PasswordEncoder encoder(){ return new BCryptPasswordEncoder();}
@@ -27,6 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
     }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -49,4 +56,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.OPTIONS, "*/**")
                 .antMatchers("/", "/h2-console/**");
     }
+
+
 }

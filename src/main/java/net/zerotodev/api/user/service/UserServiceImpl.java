@@ -22,11 +22,11 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 @Slf4j
-public class UserServiceImpl extends Proxy implements UserService {
+public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final SecurityProvider provider;
-    private final AuthenticationManager manager;
+
     private final ModelMapper modelMapper;
     @Override
     public List<User> findAll() {
