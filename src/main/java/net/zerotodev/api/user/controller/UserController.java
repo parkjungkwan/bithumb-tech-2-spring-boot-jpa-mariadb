@@ -29,6 +29,7 @@ public class UserController {
             @ApiResponse(code=422, message = "중복된 username")})
     public ResponseEntity<String> signup(@ApiParam("Signup User")
                                          @RequestBody UserDto userDto){
+        System.out.println("################## MMMMMMM ###########");
         return ResponseEntity.ok(userService.signup(modelMapper.map(userDto, User.class)));
     }
     @PostMapping("/signin")

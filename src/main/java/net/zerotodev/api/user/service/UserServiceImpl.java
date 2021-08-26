@@ -26,7 +26,6 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final SecurityProvider provider;
-
     private final ModelMapper modelMapper;
     @Override
     public List<User> findAll() {
